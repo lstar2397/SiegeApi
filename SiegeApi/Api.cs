@@ -73,7 +73,7 @@ namespace SiegeApi
 
         private async Task FetchTicket()
         {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://connect.ubi.com/ubiservices/v2/profiles/sessions");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Constants.AuthorizationUrl);
             request.Method = "POST";
             request.ContentType = "application/json; charset=utf-8";
             request.Headers.Add("Authorization", "Basic " + Token);
@@ -125,12 +125,12 @@ namespace SiegeApi
             }
         }
 
-        internal async Task<JObject> FetchData(string url)
+        internal async Task<JObject> FetchData(Uri uri)
         {
             if (Ticket == null)
                 await FetchTicket();
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             request.ContentType = "application/json; charset=utf-8";
             request.Headers.Add("Authorization", "Ubi_v1 t=" + Ticket);
             request.Headers.Add("Ubi-AppId", AppId);
@@ -158,7 +158,7 @@ namespace SiegeApi
                         if (response.StatusCode == HttpStatusCode.Unauthorized)
                         {
                             await FetchTicket();
-                            return await FetchData(url);
+                            return await FetchData(uri);
                         }
                     }
                 }
@@ -169,13 +169,21 @@ namespace SiegeApi
 
         public async Task<Player> GetPlayerById(string id, Platform platform)
         {
-            var data = await FetchData($"https://public-ubiservices.ubi.com/v2/profiles?platformType={platform.ToInternalString()}&idsOnPlatform={id}");
+            Uri profileUri = new Uri(Constants.ProfileUrl)
+                .AddParameter("platformType", platform.ToInternalString())
+                .AddParameter("idsOnPlatform", id);
+
+            var data = await FetchData(profileUri);
             return data["profiles"].ToObject<IEnumerable<Player>>().FirstOrDefault();
         }
 
         public async Task<Player> GetPlayerByName(string name, Platform platform)
         {
-            var data = await FetchData($"https://public-ubiservices.ubi.com/v2/profiles?platformType={platform.ToInternalString()}&nameOnPlatform={name}");
+            Uri profileUri = new Uri(Constants.ProfileUrl)
+                .AddParameter("platformType", platform.ToInternalString())
+                .AddParameter("nameOnPlatform", name);
+
+            var data = await FetchData(profileUri);
             return data["profiles"].ToObject<IEnumerable<Player>>().FirstOrDefault();
         }
     }

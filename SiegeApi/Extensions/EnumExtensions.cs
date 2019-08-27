@@ -34,20 +34,5 @@ namespace SiegeApi.Extensions
                     throw new InvalidEnumArgumentException();
             }
         }
-
-        public static string ToInternalUrlString(this Platform platform)
-        {
-            switch (platform)
-            {
-                case Platform.UPLAY:
-                    return "OSBOR_PC_LNCH_A";
-                case Platform.XBOX:
-                    return "OSBOR_XBOXONE_LNCH_A";
-                case Platform.PLAYSTATION:
-                    return "OSBOR_PS4_LNCH_A";
-                default:
-                    throw new InvalidEnumArgumentException();
-            }
-        }
     }
 }
