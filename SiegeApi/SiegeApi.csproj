@@ -7,7 +7,7 @@
     <Authors>Starlet</Authors>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
     <RepositoryUrl>https://github.com/lstar2397/SiegeApi</RepositoryUrl>
-    <PackageTags>Rainbow Six Siege</PackageTags>
+    <PackageTags>Rainbow6</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
