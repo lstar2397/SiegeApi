@@ -186,5 +186,25 @@ namespace SiegeApi
             var data = await FetchData(profileUri);
             return data["profiles"].ToObject<IEnumerable<Player>>().FirstOrDefault();
         }
+
+        public async Task<IEnumerable<Player>> GetPlayersById(IEnumerable<string> ids, Platform platform)
+        {
+            Uri profileUri = new Uri(Constants.ProfileUrl)
+                .AddParameter("platformType", platform.ToInternalString())
+                .AddParameter("idsOnPlatform", string.Join(",", ids));
+
+            var data = await FetchData(profileUri);
+            return data["profiles"].ToObject<IEnumerable<Player>>();
+        }
+
+        public async Task<IEnumerable<Player>> GetPlayersByName(IEnumerable<string> names, Platform platform)
+        {
+            Uri profileUri = new Uri(Constants.ProfileUrl)
+                .AddParameter("platformType", platform.ToInternalString())
+                .AddParameter("nameOnPlatform", string.Join(",", names));
+
+            var data = await FetchData(profileUri);
+            return data["profiles"].ToObject<IEnumerable<Player>>();
+        }
     }
 }
