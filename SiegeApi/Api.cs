@@ -17,6 +17,7 @@ namespace SiegeApi
         #region Fields
 
         private static Api _instance;
+        private string _ticket;
 
         #endregion
 
@@ -26,9 +27,26 @@ namespace SiegeApi
 
         public string AppId { get; internal set; }
 
-        public string Ticket { get; internal set; }
+        public string Ticket
+        {
+            get { return _ticket; }
+            internal set
+            {
+                if (_ticket == value) return;
+
+                _ticket = value;
+                OnTicketChanged?.Invoke(_ticket);
+            }
+        }
 
         public string RememberMeTicket { get; internal set; }
+
+        #endregion
+
+        #region Event
+
+        public delegate void TicketChangedDelegate(string ticket);
+        public event TicketChangedDelegate OnTicketChanged;
 
         #endregion
 
