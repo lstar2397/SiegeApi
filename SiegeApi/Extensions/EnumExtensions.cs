@@ -9,11 +9,11 @@ namespace SiegeApi.Extensions
         {
             switch (region)
             {
-                case Region.ASIA:
+                case Region.Asia:
                     return "apac";
-                case Region.EU:
+                case Region.Europe:
                     return "emea";
-                case Region.NA:
+                case Region.NorthAmerica:
                     return "ncsa";
                 default:
                     throw new InvalidEnumArgumentException();
@@ -24,11 +24,11 @@ namespace SiegeApi.Extensions
         {
             switch (platform)
             {
-                case Platform.UPLAY:
+                case Platform.Uplay:
                     return "uplay";
-                case Platform.XBOX:
+                case Platform.Xbox:
                     return "xbl";
-                case Platform.PLAYSTATION:
+                case Platform.Playstation:
                     return "psn";
                 default:
                     throw new InvalidEnumArgumentException();
