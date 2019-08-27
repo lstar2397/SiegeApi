@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>SiegeApi</PackageId>
+    <Version>0.1.0-alpha</Version>
+    <Authors>Starlet</Authors>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <RepositoryUrl>https://github.com/lstar2397/SiegeApi</RepositoryUrl>
+    <PackageTags>Rainbow Six Siege</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
