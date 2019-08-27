@@ -11,9 +11,9 @@ namespace SiegeApi
 
         public static readonly Dictionary<Platform, string> RankUrls = new Dictionary<Platform, string>()
         {
-            { Platform.UPLAY, "https://public-ubiservices.ubi.com/v1/spaces/5172a557-50b5-4665-b7db-e3f2e8c5041d/sandboxes/OSBOR_PC_LNCH_A/r6karma/players" },
-            { Platform.XBOX, "https://public-ubiservices.ubi.com/v1/spaces/05bfb3f7-6c21-4c42-be1f-97a33fb5cf66/sandboxes/OSBOR_XBOXONE_LNCH_A/r6karma/players" },
-            { Platform.PLAYSTATION, "https://public-ubiservices.ubi.com/v1/spaces/98a601e5-ca91-4440-b1c5-753f601a2c90/sandboxes/OSBOR_PS4_LNCH_A/r6karma/players" }
+            { Platform.Uplay, "https://public-ubiservices.ubi.com/v1/spaces/5172a557-50b5-4665-b7db-e3f2e8c5041d/sandboxes/OSBOR_PC_LNCH_A/r6karma/players" },
+            { Platform.Xbox, "https://public-ubiservices.ubi.com/v1/spaces/05bfb3f7-6c21-4c42-be1f-97a33fb5cf66/sandboxes/OSBOR_XBOXONE_LNCH_A/r6karma/players" },
+            { Platform.Playstation, "https://public-ubiservices.ubi.com/v1/spaces/98a601e5-ca91-4440-b1c5-753f601a2c90/sandboxes/OSBOR_PS4_LNCH_A/r6karma/players" }
         };
     }
 }

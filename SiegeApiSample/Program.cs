@@ -10,14 +10,14 @@ namespace SiegeApiSample
         {
             Api api = Api.GetInstance(email: "Your ubisoft email", password: "Your ubisoft password");
 
-            var player = api.GetPlayerByName("Aixel.", Platform.UPLAY).Result;
+            var player = api.GetPlayerByName("Aixel.", Platform.Uplay).Result;
             Console.WriteLine($"player.ProfileId: {player.ProfileId}");
             Console.WriteLine($"player.UserId: {player.UserId}");
             Console.WriteLine($"player.PlatformType: {player.PlatformType}");
             Console.WriteLine($"player.IdOnPlatform: {player.IdOnPlatform}");
             Console.WriteLine($"player.NameOnPlatform: {player.NameOnPlatform}");
 
-            var rank = player.GetRank(Region.ASIA).Result;
+            var rank = player.GetRank(Region.Asia).Result;
             Console.WriteLine($"rank.MaxMmr: {rank.MaxMmr}");
             Console.WriteLine($"rank.SkillMean: {rank.SkillMean}");
             Console.WriteLine($"rank.MaxMDeathsmr: {rank.Deaths}");

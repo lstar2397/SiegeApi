@@ -5,10 +5,10 @@ namespace SiegeApi.Enums
     public enum Platform
     {
         [EnumMember(Value = "uplay")]
-        UPLAY,
+        Uplay,
         [EnumMember(Value = "xbl")]
-        XBOX,
+        Xbox,
         [EnumMember(Value = "psn")]
-        PLAYSTATION
+        Playstation
     }
 }

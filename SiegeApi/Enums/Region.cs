@@ -5,10 +5,10 @@ namespace SiegeApi.Enums
     public enum Region
     {
         [EnumMember(Value = "apac")]
-        ASIA,
+        Asia,
         [EnumMember(Value = "emea")]
-        EU,
+        Europe,
         [EnumMember(Value = "ncsa")]
-        NA
+        NorthAmerica
     }
 }
