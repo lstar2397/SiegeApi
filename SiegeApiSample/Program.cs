@@ -20,6 +20,11 @@ namespace SiegeApiSample
             Console.WriteLine($"player.IdOnPlatform: {player.IdOnPlatform}");
             Console.WriteLine($"player.NameOnPlatform: {player.NameOnPlatform}");
 
+            var progression = await player.GetProgression();
+            Console.WriteLine($"progression.Xp: {progression.Xp}");
+            Console.WriteLine($"progression.LootboxProbability: {progression.LootboxProbability}");
+            Console.WriteLine($"progression.Level: {progression.Level}");
+
             var rank = await player.GetRank(Region.Asia);
             Console.WriteLine($"rank.MaxMmr: {rank.MaxMmr}");
             Console.WriteLine($"rank.SkillMean: {rank.SkillMean}");
