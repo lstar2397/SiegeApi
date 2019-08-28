@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using SiegeApi.Enums;
@@ -30,7 +31,19 @@ namespace SiegeApi.Models
 
         #endregion
 
+        private Progression _progression;
         private Dictionary<string, Rank> _ranks;
+
+        private async Task FetchProgression()
+        {
+            Uri progressionUri = new Uri(Constants.ProgressionUrls[PlatformType])
+                .AddParameter("profile_ids", ProfileId);
+
+            var data = await Api.Instance.FetchData(progressionUri);
+            var progression = data["player_profiles"].ToObject<IEnumerable<Progression>>().FirstOrDefault();
+
+            _progression = progression;
+        }
 
         private async Task FetchRank(Region region, int season = -1)
         {
@@ -47,6 +60,14 @@ namespace SiegeApi.Models
                 _ranks = new Dictionary<string, Rank>();
 
             _ranks.Add($"{region.ToInternalString()}:{season}", rank);
+        }
+
+        public async Task<Progression> GetProgression()
+        {
+            if (_progression == null)
+                await FetchProgression();
+
+            return _progression;
         }
 
         public async Task<Rank> GetRank(Region region, int season = -1)
