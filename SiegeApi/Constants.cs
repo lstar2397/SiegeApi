@@ -36,5 +36,12 @@ namespace SiegeApi
             { Platform.Xbox, $"https://public-ubiservices.ubi.com/v1/spaces/{SpaceIds[Platform.Xbox]}/sandboxes/{SandboxNames[Platform.Xbox]}/r6playerprofile/playerprofile/progressions" },
             { Platform.Playstation, $"https://public-ubiservices.ubi.com/v1/spaces/{SpaceIds[Platform.Playstation]}/sandboxes/{SandboxNames[Platform.Playstation]}/r6playerprofile/playerprofile/progressions" }
         };
+
+        public static readonly Dictionary<Platform, string> StatisticsUrls = new Dictionary<Platform, string>()
+        {
+            { Platform.Uplay, $"https://public-ubiservices.ubi.com/v1/spaces/{SpaceIds[Platform.Uplay]}/sandboxes/{SandboxNames[Platform.Uplay]}/playerstats2/statistics" },
+            { Platform.Xbox, $"https://public-ubiservices.ubi.com/v1/spaces/{SpaceIds[Platform.Xbox]}/sandboxes/{SandboxNames[Platform.Xbox]}/playerstats2/statistics" },
+            { Platform.Playstation, $"https://public-ubiservices.ubi.com/v1/spaces/{SpaceIds[Platform.Playstation]}/sandboxes/{SandboxNames[Platform.Playstation]}/playerstats2/statistics" }
+        };
     }
 }
