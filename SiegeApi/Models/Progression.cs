@@ -18,8 +18,8 @@ namespace SiegeApi.Models
         [JsonProperty("lootbox_probability")]
         public string LootboxProbability { get; internal set; }
 
-        [JsonProperty("nameOnPlatform")]
-        public string NameOnPlatform { get; internal set; }
+        [JsonProperty("level")]
+        public string level { get; internal set; }
 
         #endregion
     }
