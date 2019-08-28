@@ -19,7 +19,7 @@ namespace SiegeApi.Models
         public string LootboxProbability { get; internal set; }
 
         [JsonProperty("level")]
-        public string level { get; internal set; }
+        public string Level { get; internal set; }
 
         #endregion
     }
