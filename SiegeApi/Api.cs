@@ -39,7 +39,11 @@ namespace SiegeApi
             }
         }
 
+        public DateTime Expiration { get; internal set; }
+
         public string RememberMeTicket { get; internal set; }
+
+        public string SessionId { get; internal set; }
 
         #endregion
 
@@ -116,7 +120,9 @@ namespace SiegeApi
                         JObject result = JObject.Parse(json);
 
                         Ticket = result.GetValue("ticket").ToString();
+                        Expiration = DateTime.Parse(result.GetValue("expiration").ToString());
                         RememberMeTicket = result.GetValue("rememberMeTicket").ToString();
+                        SessionId = result.GetValue("sessionId").ToString();
                     }
                 }
             }
