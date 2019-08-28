@@ -12,9 +12,6 @@ namespace SiegeApi.Models
         [JsonProperty("xp")]
         public string Xp { get; internal set; }
 
-        [JsonProperty("profile_id")]
-        public string ProfileId { get; internal set; }
-
         [JsonProperty("lootbox_probability")]
         public string LootboxProbability { get; internal set; }
 
